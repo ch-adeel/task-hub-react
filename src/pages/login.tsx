@@ -9,6 +9,7 @@ import {
   TextField,
   Button,
   Grid,
+  Paper,
 } from "@mui/material";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -25,12 +26,28 @@ const navigate = useNavigate();
         <CssBaseline />
         <Box
           sx={{           
+            // backgroundColor: "#f4f6f8", // Light grey/blue background
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             
           }}
         >
+          <CssBaseline />
+
+          <Paper elevation={3}
+        sx={{
+          padding: 4,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          maxWidth: 400,
+          width: "100%",
+          borderRadius: 2,
+          border: "1px solid #e0e0e0", // The border you requested
+          mx: 2, // Margin for mobile responsiveness
+        }}>
+
           <Avatar sx={{ m: 1, bgcolor: "primary.light" }}>
             <LockOutlined />
           </Avatar>
@@ -46,7 +63,7 @@ const navigate = useNavigate();
               autoFocus
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-            />
+              />
 
             <TextField
               margin="normal"
@@ -60,14 +77,14 @@ const navigate = useNavigate();
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
-            />
+              />
 
             <Button
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               onClick={handleLogin}
-            >
+              >
               Login
             </Button>
             <Grid container justifyContent={"flex-start"}>
@@ -76,6 +93,7 @@ const navigate = useNavigate();
               </Grid>
             </Grid>
           </Box>
+              </Paper>
         </Box>
       </Grid>
     </>

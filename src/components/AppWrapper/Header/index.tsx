@@ -1,45 +1,49 @@
 import React from "react";
-// import styles from 'index.scss';
-import { AppBar, Box, Grid, Typography } from "@mui/material";
-import { Toolbar } from "@mui/material";
-// import styles from './index.scss'
-import crud from '../../../assets/crud.png'
-// import { Button } from "@mui/material";
-import { IconButton } from "@mui/material";
-const index = () => {
+import { AppBar, Box, Typography, Toolbar, Container } from "@mui/material";
+import crud from '../../../assets/crud.png';
+
+const Navbar = () => {
   return (
-    <>      
-        <AppBar position="fixed">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            > 
-             </IconButton>
-             <Grid container alignItems="center" >
-                <Grid item xs={4} sm={3}>
-                    <Typography variant="h6" color="inherit" noWrap>DashBoard</Typography>
-                </Grid>
-                <Grid item xs={4} sm={6} sx={{display: 'flex', justifyContent: 'center'}}>
-                    <Box component="img" src={crud} alt="Logo" sx={{ height:{ xs: '30px', sm: '40px'}
-                }}
-                />
-                    
-                    </Grid>  
-                    <Grid item xs={4} sm={3} sx={{display: "flex", justifyContent: "flex-end"}}>
-                       <Typography variant="body1" color="inherit" noWrap>
-                        UserName
-                        </Typography> 
-                    </Grid>
-             </Grid>
-          </Toolbar>
-        </AppBar>
-      
-    </>
+    <AppBar position="fixed" sx={{ bgcolor: 'primary.main' }}>
+      <Container maxWidth="xl"> 
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
+          
+          
+          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
+            <Typography variant="h6" color="inherit" noWrap>
+              Dashboard
+            </Typography>
+          </Box>
+
+          
+          <Box 
+            sx={{ 
+              position: 'absolute', 
+              left: '50%', 
+              transform: 'translateX(-50%)',
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            <Box 
+              component="img" 
+              src={crud} 
+              alt="Logo" 
+              sx={{ height: { xs: '30px', sm: '45px' } }}
+            />
+          </Box>
+
+        
+          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+            <Typography variant="body1" color="inherit" noWrap>
+              UserName
+            </Typography>
+          </Box>
+
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 };
 
-export default index;
+export default Navbar;
